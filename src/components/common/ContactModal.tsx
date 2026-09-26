@@ -95,7 +95,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
   return (
     <AnimatePresence>
       {isOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto overflow-x-hidden">
           {/* Backdrop */}
           <motion.div
             initial={{ opacity: 0 }}
@@ -111,21 +111,23 @@ export const ContactModal: React.FC<ContactModalProps> = ({
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.94, y: 20 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="relative w-full max-w-xl max-h-[92vh] bg-[#0C0C0C] border-2 border-[#D7E2EA] rounded-[32px] sm:rounded-[44px] p-5 sm:p-8 md:p-9 shadow-[0_30px_90px_rgba(0,0,0,0.95)] z-10 overflow-y-auto"
+            className="relative w-full max-w-xl max-h-[92vh] bg-[#0C0C0C] border-2 border-[#D7E2EA] rounded-[32px] sm:rounded-[44px] shadow-[0_30px_90px_rgba(0,0,0,0.95)] z-10 overflow-hidden flex flex-col"
           >
             {/* Ambient Metallic Glow */}
             <div className="absolute -top-24 -right-24 w-60 h-60 bg-[#D7E2EA]/10 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute -bottom-24 -left-24 w-60 h-60 bg-[#646973]/15 rounded-full blur-3xl pointer-events-none" />
 
-            {/* Close Button */}
-            <button
-              type="button"
-              onClick={onClose}
-              aria-label="Close modal"
-              className="absolute top-5 right-5 text-[#D7E2EA] hover:text-black hover:bg-[#D7E2EA] transition-all p-2 rounded-full border border-[#D7E2EA]/30 cursor-pointer"
-            >
-              <X className="w-5 h-5" />
-            </button>
+            {/* Scrollable Body: Pure vertical scrolling, zero horizontal wobble or panning */}
+            <div className="w-full h-full overflow-y-auto overflow-x-hidden p-5 sm:p-8 md:p-9 relative z-10">
+              {/* Close Button */}
+              <button
+                type="button"
+                onClick={onClose}
+                aria-label="Close modal"
+                className="absolute top-5 right-5 text-[#D7E2EA] hover:text-black hover:bg-[#D7E2EA] transition-all p-2 rounded-full border border-[#D7E2EA]/30 cursor-pointer z-30"
+              >
+                <X className="w-5 h-5" />
+              </button>
 
             {/* Modal Header */}
             <div className="mb-5">
@@ -333,6 +335,7 @@ export const ContactModal: React.FC<ContactModalProps> = ({
               >
                 <Facebook className="w-4 h-4" />
               </a>
+            </div>
             </div>
           </motion.div>
         </div>

@@ -21,9 +21,9 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
       {/* Top-Left: Moon icon */}
       <FadeIn
         delay={0.1}
-        x={-80}
-        y={0}
-        duration={0.9}
+        x={0}
+        y={30}
+        duration={0.7}
         className="absolute top-[4%] left-[1%] sm:left-[2%] md:left-[4%] z-10 pointer-events-none"
       >
         <img
@@ -36,10 +36,10 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
 
       {/* Bottom-Left: 3D object */}
       <FadeIn
-        delay={0.25}
-        x={-80}
-        y={0}
-        duration={0.9}
+        delay={0.2}
+        x={0}
+        y={30}
+        duration={0.7}
         className="absolute bottom-[8%] left-[3%] sm:left-[6%] md:left-[10%] z-10 pointer-events-none"
       >
         <img
@@ -53,9 +53,9 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
       {/* Top-Right: Lego icon */}
       <FadeIn
         delay={0.15}
-        x={80}
-        y={0}
-        duration={0.9}
+        x={0}
+        y={30}
+        duration={0.7}
         className="absolute top-[4%] right-[1%] sm:right-[2%] md:right-[4%] z-10 pointer-events-none"
       >
         <img
@@ -68,10 +68,10 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
 
       {/* Bottom-Right: 3D group */}
       <FadeIn
-        delay={0.3}
-        x={80}
-        y={0}
-        duration={0.9}
+        delay={0.25}
+        x={0}
+        y={30}
+        duration={0.7}
         className="absolute bottom-[8%] right-[3%] sm:right-[6%] md:right-[10%] z-10 pointer-events-none"
       >
         <img

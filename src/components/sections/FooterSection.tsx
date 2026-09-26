@@ -18,7 +18,7 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
   return (
     <footer
       id="contact"
-      className="relative w-full bg-[#080808] border-t border-[#D7E2EA]/10 px-5 sm:px-8 md:px-10 py-16 sm:py-20 text-[#D7E2EA] select-none"
+      className="relative w-full bg-[#080808] border-t border-[#D7E2EA]/10 px-5 sm:px-8 md:px-10 py-16 sm:py-20 text-[#D7E2EA] select-none overflow-hidden"
     >
       <div className="w-full max-w-6xl mx-auto flex flex-col gap-12 sm:gap-16">
         {/* Upper Banner */}
