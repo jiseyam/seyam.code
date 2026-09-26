@@ -9,6 +9,7 @@ interface FadeInProps {
   y?: number;
   className?: string;
   as?: string;
+  once?: boolean;
 }
 
 export const FadeIn: React.FC<FadeInProps> = ({
@@ -19,21 +20,40 @@ export const FadeIn: React.FC<FadeInProps> = ({
   y = 30,
   className = "",
   as = "div",
+  once = false,
 }) => {
   // Support dynamic element types safely with motion
   const MotionComponent =
     (motion as unknown as Record<string, typeof motion.div>)[as] || motion.div;
 
-  return (
-    <MotionComponent
-      initial={{ opacity: 0, x, y }}
-      whileInView={{ opacity: 1, x: 0, y: 0 }}
-      viewport={{ once: true, margin: "50px", amount: 0 }}
-      transition={{
+  const variants = {
+    hidden: {
+      opacity: 0,
+      x,
+      y,
+      transition: {
+        duration: 0.25,
+        ease: "easeOut",
+      },
+    },
+    visible: {
+      opacity: 1,
+      x: 0,
+      y: 0,
+      transition: {
         duration,
         delay,
         ease: [0.25, 0.1, 0.25, 1],
-      }}
+      },
+    },
+  };
+
+  return (
+    <MotionComponent
+      variants={variants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once, amount: 0.1, margin: "0px" }}
       className={className}
     >
       {children}
