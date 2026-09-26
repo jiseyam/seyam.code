@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  background-color: #0c0c0c;
+  color: #d7e2ea;
+  font-family: "Kanit", sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  overflow-x: clip;
+}
+
+/* Custom hero-heading gradient class required by specification */
+.hero-heading {
+  background: linear-gradient(180deg, #646973 0%, #bbccd7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Custom scrollbar for dark theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0c0c0c;
+}
+::-webkit-scrollbar-thumb {
+  background: #252830;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3a3e4b;
+}
+
+/* Theme Button Styles matching #0C0C0C & #D7E2EA */
+.theme-btn-primary {
+  background: linear-gradient(180deg, #181c22 0%, #0c0c0c 100%);
+  border: 2px solid #d7e2ea;
+  color: #d7e2ea;
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.6),
+    inset 0 1px 1px rgba(215, 226, 234, 0.2);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.theme-btn-primary:hover {
+  background: #d7e2ea;
+  color: #0c0c0c;
+  border-color: #ffffff;
+  box-shadow:
+    0 0 35px rgba(215, 226, 234, 0.4),
+    0 4px 25px rgba(0, 0, 0, 0.8);
+}
